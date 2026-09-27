@@ -294,6 +294,14 @@ max-height: 300px;
 
 }
 
+.event-card.saved {
+
+  border: 2px solid #ffb71b;
+  padding: 10px;
+  background-color: #fff4d6;
+
+}
+
 .event-card figure {
 
   width: 100%;

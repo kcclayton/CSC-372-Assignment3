@@ -58,10 +58,12 @@ eventCards.forEach((eventCard) => {
 
 		if (isSaved) {
 			originalParent.appendChild(eventCard);
+			eventCard.classList.remove("saved");
 			saveButton.textContent = "Save Event";
 			remove(eventCard.id);
 		} else {
 			savedEventsSection.appendChild(eventCard);
+			eventCard.classList.add("saved");
 			saveButton.textContent = "Remove Event";
 			savedEventsList.appendChild(savedEventItem);
 		}
