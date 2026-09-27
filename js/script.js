@@ -21,3 +21,23 @@ emptySavedEventsMessage.textContent = "No events saved yet";
 savedEventsSection.appendChild(savedEventsHeading);
 savedEventsSection.appendChild(emptySavedEventsMessage);
 document.querySelector("main").appendChild(savedEventsSection);
+
+eventCards.forEach((eventCard) => {
+
+	const saveButton = eventCard.querySelector("button");
+	const originalParent = eventCard.parentElement;
+
+	saveButton.addEventListener("click", () => {
+		const isSaved = savedEventsSection.contains(eventCard);
+
+		if (isSaved) {
+			originalParent.appendChild(eventCard);
+			saveButton.textContent = "Save Event";
+		} else {
+			savedEventsSection.appendChild(eventCard);
+			saveButton.textContent = "Remove Event";
+		}
+
+		emptySavedEventsMessage.hidden = savedEventsSection.querySelectorAll(".event-card").length > 0;
+	});
+});
