@@ -13,6 +13,7 @@ eventCards.forEach((eventCard, index) => {
 
 	const saveButton = document.createElement("button");
 	saveButton.type = "button";
+	saveButton.classList.add("save-btn");
 	saveButton.textContent = "Save Event";
 	eventCard.appendChild(saveButton);
 });

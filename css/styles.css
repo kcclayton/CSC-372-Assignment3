@@ -302,6 +302,34 @@ max-height: 300px;
 
 }
 
+.save-btn {
+
+  align-self: flex-start;
+  padding: 0.65rem 1rem;
+  border: 1px solid #ffb71b;
+  font-family: 'Sofia Pro Bold', Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  color: #ffb71b;
+  background-color: #0f2044;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+}
+
+.save-btn:hover {
+
+  color: #0f2044;
+  background-color: #ffb71b;
+
+}
+
+.save-btn:focus-visible {
+
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+
+}
+
 .event-card figure {
 
   width: 100%;
