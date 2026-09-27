@@ -35,7 +35,8 @@ savedEventsSection.appendChild(savedEventsList);
 document.querySelector("main").appendChild(savedEventsSection);
 
 function remove(eventID) {
-	const savedEventItem = savedEventsList.querySelector(`li[data-event-id="${eventID}"]`);
+	const savedEventItem = Array.from(savedEventsList.querySelectorAll("li"))
+		.find((eventItem) => eventItem.dataset.eventID === eventID);
 
 	if (savedEventItem) {
 		savedEventItem.remove();
