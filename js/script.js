@@ -3,6 +3,12 @@ console.log("script loaded")
 const eventCards = document.querySelectorAll(".event-card");
 
 eventCards.forEach((eventCard) => {
+	const eventName = eventCard.querySelector("h2").textContent.trim();
+	const eventDateTime = eventCard.querySelector("time").textContent.trim();
+	const eventLocation = eventCard.querySelector(".event-meta").textContent.split("|")[1].trim();
+
+	console.log(eventName, eventDateTime, eventLocation);
+
 	const saveButton = document.createElement("button");
 	saveButton.type = "button";
 	saveButton.textContent = "Save Event";
