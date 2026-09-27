@@ -13,6 +13,7 @@ eventCards.forEach((eventCard, index) => {
 
 	const saveButton = document.createElement("button");
 	saveButton.type = "button";
+	saveButton.classList.add("save-btn");
 	saveButton.textContent = "Save Event";
 	eventCard.appendChild(saveButton);
 });
@@ -42,7 +43,8 @@ function remove(eventID) {
 }
 
 function updateEmptyMessage() {
-	emptySavedEventsMessage.hidden = savedEventsList.querySelectorAll("li").length > 0;
+	const hasSavedEvents = savedEventsList.querySelectorAll("li").length > 0;
+	emptySavedEventsMessage.classList.toggle("hidden", hasSavedEvents);
 }
 
 eventCards.forEach((eventCard) => {
@@ -58,10 +60,12 @@ eventCards.forEach((eventCard) => {
 
 		if (isSaved) {
 			originalParent.appendChild(eventCard);
+			eventCard.classList.remove("saved");
 			saveButton.textContent = "Save Event";
 			remove(eventCard.id);
 		} else {
 			savedEventsSection.appendChild(eventCard);
+			eventCard.classList.add("saved");
 			saveButton.textContent = "Remove Event";
 			savedEventsList.appendChild(savedEventItem);
 		}
