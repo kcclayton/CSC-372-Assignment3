@@ -218,6 +218,47 @@ main {
 
 }
 
+#saved-events {
+
+  padding: 30px 100px;
+  border-bottom: 2px solid #bfbfc1;
+  border-top: 2px solid #ffb71b;
+  color: white;
+  background-color: #09132a;
+
+}
+
+#saved-events h2 {
+
+  margin: 0 0 1rem;
+  color: #ffb71b;
+  font-family: 'Pluto Sans Heavy', Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+
+}
+
+#saved-events p {
+
+  margin: 0 0 1rem;
+  color: white;
+
+}
+
+#saved-events ul {
+
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+
+}
+
+#saved-events li {
+
+  margin-bottom: 0.5rem;
+  color: #ffb71b;
+  font-family: 'Sofia Pro Bold', Arial, Helvetica, sans-serif;
+
+}
+
 #upcoming-events-wrapper {
 
   display: grid;
