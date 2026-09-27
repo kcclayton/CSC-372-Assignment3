@@ -43,7 +43,8 @@ function remove(eventID) {
 }
 
 function updateEmptyMessage() {
-	emptySavedEventsMessage.hidden = savedEventsList.querySelectorAll("li").length > 0;
+	const hasSavedEvents = savedEventsList.querySelectorAll("li").length > 0;
+	emptySavedEventsMessage.classList.toggle("hidden", hasSavedEvents);
 }
 
 eventCards.forEach((eventCard) => {

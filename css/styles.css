@@ -259,6 +259,12 @@ main {
 
 }
 
+.hidden {
+
+  display: none;
+
+}
+
 #upcoming-events-wrapper {
 
   display: grid;
