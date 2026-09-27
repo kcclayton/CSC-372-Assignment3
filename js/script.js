@@ -1,4 +1,5 @@
-console.log("script loaded")
+document.addEventListener("DOMContentLoaded", () => {
+	console.log("script loaded")
 
 const eventCards = document.querySelectorAll(".event-card");
 
@@ -73,4 +74,5 @@ eventCards.forEach((eventCard) => {
 
 		updateEmptyMessage();
 	});
+});
 });
