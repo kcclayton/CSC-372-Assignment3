@@ -2,7 +2,9 @@ console.log("script loaded")
 
 const eventCards = document.querySelectorAll(".event-card");
 
-eventCards.forEach((eventCard) => {
+eventCards.forEach((eventCard, index) => {
+	eventCard.id = `event-${index + 1}`;
+
 	const eventName = eventCard.querySelector("h2").textContent.trim();
 	const eventDateTime = eventCard.querySelector("time").textContent.trim();
 	const eventLocation = eventCard.querySelector(".event-meta").textContent.split("|")[1].trim();
@@ -31,11 +33,24 @@ savedEventsSection.appendChild(emptySavedEventsMessage);
 savedEventsSection.appendChild(savedEventsList);
 document.querySelector("main").appendChild(savedEventsSection);
 
+function remove(eventID) {
+	const savedEventItem = savedEventsList.querySelector(`li[data-event-id="${eventID}"]`);
+
+	if (savedEventItem) {
+		savedEventItem.remove();
+	}
+}
+
+function updateEmptyMessage() {
+	emptySavedEventsMessage.hidden = savedEventsList.querySelectorAll("li").length > 0;
+}
+
 eventCards.forEach((eventCard) => {
 
 	const saveButton = eventCard.querySelector("button");
 	const originalParent = eventCard.parentElement;
 	const savedEventItem = document.createElement("li");
+	savedEventItem.dataset.eventID = eventCard.id;
 	savedEventItem.textContent = `${eventCard.querySelector("h2").textContent.trim()} - ${eventCard.querySelector("time").textContent.trim()} - ${eventCard.querySelector(".event-meta").textContent.split("|")[1].trim()}`;
 
 	saveButton.addEventListener("click", () => {
@@ -44,13 +59,13 @@ eventCards.forEach((eventCard) => {
 		if (isSaved) {
 			originalParent.appendChild(eventCard);
 			saveButton.textContent = "Save Event";
-			savedEventsList.removeChild(savedEventItem);
+			remove(eventCard.id);
 		} else {
 			savedEventsSection.appendChild(eventCard);
 			saveButton.textContent = "Remove Event";
 			savedEventsList.appendChild(savedEventItem);
 		}
 
-		emptySavedEventsMessage.hidden = savedEventsSection.querySelectorAll(".event-card").length > 0;
+		updateEmptyMessage();
 	});
 });
