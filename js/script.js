@@ -24,14 +24,19 @@ savedEventsHeading.textContent = "Saved Events";
 const emptySavedEventsMessage = document.createElement("p");
 emptySavedEventsMessage.textContent = "No events saved yet";
 
+const savedEventsList = document.createElement("ul");
+
 savedEventsSection.appendChild(savedEventsHeading);
 savedEventsSection.appendChild(emptySavedEventsMessage);
+savedEventsSection.appendChild(savedEventsList);
 document.querySelector("main").appendChild(savedEventsSection);
 
 eventCards.forEach((eventCard) => {
 
 	const saveButton = eventCard.querySelector("button");
 	const originalParent = eventCard.parentElement;
+	const savedEventItem = document.createElement("li");
+	savedEventItem.textContent = `${eventCard.querySelector("h2").textContent.trim()} - ${eventCard.querySelector("time").textContent.trim()} - ${eventCard.querySelector(".event-meta").textContent.split("|")[1].trim()}`;
 
 	saveButton.addEventListener("click", () => {
 		const isSaved = savedEventsSection.contains(eventCard);
@@ -39,9 +44,11 @@ eventCards.forEach((eventCard) => {
 		if (isSaved) {
 			originalParent.appendChild(eventCard);
 			saveButton.textContent = "Save Event";
+			savedEventsList.removeChild(savedEventItem);
 		} else {
 			savedEventsSection.appendChild(eventCard);
 			saveButton.textContent = "Remove Event";
+			savedEventsList.appendChild(savedEventItem);
 		}
 
 		emptySavedEventsMessage.hidden = savedEventsSection.querySelectorAll(".event-card").length > 0;
