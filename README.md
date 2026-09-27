@@ -1,8 +1,10 @@
-# CSC-372 Assignment 2
+# CSC-372 Assignment 3
 
 ## Project Description
 
-This responsive Campus Event Guide helps UNCG students discover campus activities and open an event's details page. The intended audience is students looking for academic, cultural, athletic, outdoor, and student-government events.
+This responsive Campus Event Guide helps UNCG students discover campus activities and open an event's details page. The intended audience is students looking for academic, cultural, athletic, outdoor, and student-government events. 
+
+An interactive Saved Events section has now been added. Check it out [here](https://kcclayton.github.io/CSC-372-Assignment3/)!
 
 ## Layout Decisions
 
